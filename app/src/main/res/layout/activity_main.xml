@@ -6,18 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/edAmout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_marginStart="24dp"
         android:layout_marginTop="64dp"
+        android:id="@+id/edAmountLayout"
         android:layout_marginEnd="24dp"
-        android:hint="Amount $"
-        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="@+id/btnPayment"
         app:layout_constraintStart_toStartOf="@+id/btnPayment"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edAmout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Amount (USD)"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnPayment"
@@ -25,9 +33,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
         android:layout_marginTop="8dp"
-        android:text="Hello World!"
+        android:text="Pay now"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edAmout" />
+        app:layout_constraintTop_toBottomOf="@+id/edAmountLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
