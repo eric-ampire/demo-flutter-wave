@@ -11,8 +11,7 @@ import com.flutterwave.raveandroid.RavePayActivity
 import com.flutterwave.raveandroid.rave_java_commons.RaveConstants
 
 import android.content.Intent
-
-
+import com.google.android.material.textfield.TextInputEditText
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,8 +19,10 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
+    val edAmount = findViewById<TextInputEditText>(R.id.edAmout)
     findViewById<MaterialButton>(R.id.btnPayment).setOnClickListener {
-      RaveUiManager(this).setAmount(1.25)
+      val amount = edAmount.text?.trim().toString().toDoubleOrNull() ?: return@setOnClickListener
+      RaveUiManager(this).setAmount(amount)
         .setCurrency("USD")
         .setEmail("ericampire.top@gmail.com")
         .setfName("Eric")

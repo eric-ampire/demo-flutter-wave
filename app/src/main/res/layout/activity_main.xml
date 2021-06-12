@@ -6,14 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edAmout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="24dp"
+        android:hint="Amount $"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/btnPayment"
+        app:layout_constraintStart_toStartOf="@+id/btnPayment"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnPayment"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:layout_marginTop="8dp"
         android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/edAmout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
