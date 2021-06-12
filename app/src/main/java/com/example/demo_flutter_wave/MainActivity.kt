@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
 
     findViewById<MaterialButton>(R.id.btnPayment).setOnClickListener {
-      RaveUiManager(this).setAmount(0.25)
+      RaveUiManager(this).setAmount(1.25)
         .setCurrency("USD")
         .setEmail("ericampire.top@gmail.com")
         .setfName("Eric")
@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         .acceptRwfMobileMoneyPayments(true)
         .acceptSaBankPayments(true)
         .acceptUkPayments(true)
+        .setTxRef("tax")
         .acceptBankTransferPayments(true)
         .acceptUssdPayments(true)
         .acceptBarterPayments(true)
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         .onStagingEnv(false)
         .isPreAuth(true)
         .shouldDisplayFee(true)
-        .showStagingLabel(true)
+        .showStagingLabel(false)
         .initialize()
     }
   }
