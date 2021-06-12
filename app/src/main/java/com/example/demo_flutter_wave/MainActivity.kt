@@ -12,9 +12,15 @@ import com.flutterwave.raveandroid.rave_java_commons.RaveConstants
 
 import android.content.Intent
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textview.MaterialTextView
 
 
 class MainActivity : AppCompatActivity() {
+
+  private val tvMessage by lazy {
+    findViewById<MaterialTextView>(R.id.tvMessage)
+  }
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
@@ -58,12 +64,15 @@ class MainActivity : AppCompatActivity() {
       val message = data.getStringExtra("response")
       when (resultCode) {
         RavePayActivity.RESULT_SUCCESS -> {
+          tvMessage.text = "SUCCESS $message"
           Toast.makeText(this, "SUCCESS $message", Toast.LENGTH_SHORT).show()
         }
         RavePayActivity.RESULT_ERROR -> {
+          tvMessage.text = "ERROR $message"
           Toast.makeText(this, "ERROR $message", Toast.LENGTH_SHORT).show()
         }
         RavePayActivity.RESULT_CANCELLED -> {
+          tvMessage.text = "CANCELLED $message"
           Toast.makeText(this, "CANCELLED $message", Toast.LENGTH_SHORT).show()
         }
       }
